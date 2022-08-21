@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const {ensureAuth, ensureGuest} = require('../middleware/auth')
+
+const  Task = require('../models/Tasks')
 // @desc login/landing page
 // @route GET/ 
 
@@ -12,12 +14,21 @@ router.get('/', ensureGuest, (req, res) => {
 })
 
 // @desc Dashboard
-// @route GET/ dashboard
+// @route GET/ pending
 
-router.get('/pending',ensureAuth, (req, res) => {
-    res.render('main', {
-        name: req.user.firstName
-    })
+router.get('/pending',ensureAuth, async(req, res) => {
+    try {
+        const tasks = await Task.find({ user: req.user.id }).lean()
+        res.render('main', {
+            name: req.user.firstName,
+            tasks
+        })
+
+    } catch (error) {
+        console.error(err)
+        res.render('error/500')
+    }
+
 }) 
 
 

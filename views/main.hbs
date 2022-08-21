@@ -1,1 +1,27 @@
-<h1>pending tasks</h1>
+<h6>PENDING TASKS</h6>
+<h3>Welcome {{name}}</h3>
+<p>Here are your pending tasks</p>
+{{#if tasks}}
+        <table class="striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each tasks}}
+                <tr>
+                    <td><a href="/tasks/{{_id}}">{{todo}}</a></td>
+                    <td>{{createdAt }}</td>
+                    <td><span class="dash-status">{{completed}}</span></td>
+                    <td></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+<p>You do not have any pending tasks. Add one now!</p>
+{{/if}}
