@@ -67,7 +67,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', require ('./routes/index')) 
 app.use('/auth', require ('./routes/auth')) 
-app.use('/task', require ('./routes/tasks')) 
+app.use('/tasks', require ('./routes/tasks')) 
 
 
 
