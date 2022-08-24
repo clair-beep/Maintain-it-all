@@ -1,22 +1,17 @@
-<h3>Add a task Story</h3>
+<h3>Add Story</h3>
 <div class="row">
-    <form action="/pending" method="POST" class="col s12">
+    <form action="/tasks" method="POST" class="col s12">
+
         <div class="row">
             <div class="input-field">
-                <input type="text" id="title" name="title">
-                <label for="title"> Task</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <h5>Write down a task</h5>
+                <h5>Write down your task:</h5>
                 <textarea id="body" name="body"></textarea>
             </div>
         </div>
 
         <div class="row">
             <input type="submit" value="Save" class="btn">
-            <a href="/pending" class="btn orange">Cancel</a>
+            <a href="/tasks" class="btn orange">Cancel</a>
         </div>
     </form>
 </div>

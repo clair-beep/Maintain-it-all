@@ -18,6 +18,7 @@ require('./config/passport')(passport)
 
 
 connectDB()
+
 const app = express()
 
 //Body parser (how the information is  received/formatted)

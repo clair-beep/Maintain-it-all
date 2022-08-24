@@ -14,9 +14,9 @@ router.get('/', ensureGuest, (req, res) => {
 })
 
 // @desc Dashboard
-// @route GET/ pending
+// @route GET/ tasks
 
-router.get('/pending',ensureAuth, async(req, res) => {
+router.get('/tasks',ensureAuth, async(req, res) => {
     try {
         const tasks = await Task.find({ user: req.user.id }).lean()
         res.render('main', {
