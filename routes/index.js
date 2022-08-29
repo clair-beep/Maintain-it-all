@@ -24,7 +24,7 @@ router.get('/tasks',ensureAuth, async(req, res) => {
             tasks
         })
 
-    } catch (error) {
+    } catch (err) {
         console.error(err)
         res.render('error/500')
     }
