@@ -1,5 +1,8 @@
 <h6>Pending list </h6>
 <h3>Welcome {{name}}</h3>
+            <span> local date
+                {{localDatetime}}
+            </span>
 <p>Here are your pending tasks</p>
 {{#if tasks}}
         <table class="striped">
@@ -13,7 +16,7 @@
         <tbody>
             {{#each tasks}}
                 <tr>
-                    <td>{{createdAt}}</td>
+                    <td>{{formatDate createdAt}}</td>
                     <td><a href="/tasks/{{_id}}">{{{body}}}</a></td>
                 </tr>
             {{/each}}

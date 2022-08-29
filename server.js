@@ -26,14 +26,23 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 
+//Handlebars helpers 
+
+const { formatDate } = require('./helpers/hbs')
+
 
 //Handlebars
 //!Add the word .engine after exphbs
 app.engine('.hbs', exphbs.engine({
+    helpers: {
+        formatDate,
+    },
+    //this is the defaut layout passed every time
     defaultLayout: 'main',
     extname: '.hbs'
     })
 )
+
 app.set('view engine', '.hbs')
 
 
